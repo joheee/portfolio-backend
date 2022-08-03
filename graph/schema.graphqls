@@ -1,0 +1,36 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Experience {
+  id: ID!
+  title: String!
+  yearBegin: String!
+  yearEnd: String!
+  description: String!
+  pointList: [String!]!
+}
+
+
+type Query {
+  experiences: [Experience!]!
+}
+
+input NewExperience {
+  inputID: String!
+  inputTitle: String!
+  inputYearBegin: String!
+  inputYearEnd: String!
+  inputDescription: String!
+  inputPointList: [String!]!
+}
+
+input inputDeleteExperience {
+  inputID: String!
+}
+
+type Mutation {
+  createExperience(input: NewExperience!): Experience!
+  updateExperience(input: NewExperience!): Experience!
+  deleteExperience(input: inputDeleteExperience!): Experience!
+}
